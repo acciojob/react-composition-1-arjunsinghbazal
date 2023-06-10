@@ -1,19 +1,24 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const Tab=({tabs})=>{
-    const [cur,updatecur]=useState(0);
-    const upd=(user)=>{
-        updatecur(user);
-    }
-    return(
-     <>
-        <ul>
-           {tabs.map((items,index)=>
-            <li key={index} onClick={()=>{upd(index)}} className={cur===index?"Active":""}>{items.title}</li>
-           )}
-        </ul>
-        <div>{tabs[cur].content}</div>
-     </>
-    )};
+function Tabs(props) {
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
 
-export default Tab;
+  const handleTabClick = (index) => {
+    setActiveTabIndex(index);
+  };
+
+  return (
+    <div>
+      <ul>
+        {props.tabs.map((tab, index) => (
+          <li key={index} onClick={() => handleTabClick(index)}>
+            {tab.title}
+          </li>
+        ))}
+      </ul>
+      <div>{props.tabs[activeTabIndex].content}</div>
+    </div>
+  );
+}
+
+export default Tabs;
