@@ -4,9 +4,10 @@ import Tab from "./Tab";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState("");
-
+ const [count,setcount]=useState(false);
   const handleTabClick = (title) => {
     setActiveTab(title);
+    setcount(true);
   };
 
   return (
@@ -16,7 +17,7 @@ const App = () => {
         <li onClick={() => handleTabClick("Tab 2")}>Tab 2</li>
         <li onClick={() => handleTabClick("Tab 3")}>Tab 3</li>
       </ul>
-      {activeTab && <Tab title={activeTab} />}
+      {count?<Tab title={activeTab} />:null}
     </div>
   );
 };
