@@ -20,7 +20,7 @@ const App = () => {
 <<<<<<< HEAD
       {<Tab title={activeTab}/>}
 =======
-      {count?<Tab title={activeTab} />:null}
+      {<Tab title={activeTab}/>}
 >>>>>>> 7b1dc17c66d6719bfa3c908c4ac16243ac0e5829
     </div>
   );
