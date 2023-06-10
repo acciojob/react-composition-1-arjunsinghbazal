@@ -16,7 +16,7 @@ const App = () => {
         <li onClick={() => handleTabClick("Tab 2")}>Tab 2</li>
         <li onClick={() => handleTabClick("Tab 3")}>Tab 3</li>
       </ul>
-      {activeTab && <Tab title={activeTab} />}
+      {<Tab title={activeTab}/>}
     </div>
   );
 };
