@@ -1,28 +1,24 @@
-
 import React, { useState } from "react";
-import './../styles/App.css';
+import "./../styles/App.css";
 import Tab from "./Tab";
-const Head=(prop)=>{
-return (
-  <Tab title={prop}/>
-)
-}
+
 const App = () => {
-  [user,setCurrent]=useState("");
-  const update=(that)=>{
-    return setCurrent(that);
-  }
+  const [activeTab, setActiveTab] = useState("");
+
+  const handleTabClick = (title) => {
+    setActiveTab(title);
+  };
+
   return (
     <div>
-     <ul>
-      <li onClick={update("Tab 1")}>Tab 1</li>
-      <li onClick={update('Tab 2')}>Tab 2</li>
-      <li onClick={update('Tab 3')}>Tab 3</li>
-
-     </ul>
-     <p><Tab title={user}/></p>
+      <ul>
+        <li onClick={() => handleTabClick("Tab 1")}>Tab 1</li>
+        <li onClick={() => handleTabClick("Tab 2")}>Tab 2</li>
+        <li onClick={() => handleTabClick("Tab 3")}>Tab 3</li>
+      </ul>
+      {activeTab && <Tab title={activeTab} />}
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
