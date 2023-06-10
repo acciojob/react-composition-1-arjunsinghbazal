@@ -8,9 +8,9 @@ const Tab=({tabs})=>{
     return(
      <>
         <ul>
-           {tabs.map((items,index)=>{
+           {tabs.map((items,index)=>
             <li key={index} onClick={()=>{upd(index)}} className={cur===index?"Active":""}>{tabs.title}</li>
-           })}
+           )}
         </ul>
         <div>{tabs[cur].content}</div>
      </>
