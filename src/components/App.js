@@ -8,7 +8,7 @@ return (
 )
 }
 const App = () => {
-  [current,setCurrent]=useState("");
+  [user,setCurrent]=useState("");
   const update=(that)=>{
     return setCurrent(that);
   }
@@ -20,7 +20,7 @@ const App = () => {
       <li onClick={update('Tab 3')}>Tab 3</li>
 
      </ul>
-     <p><Tab title={current}/></p>
+     <p><Tab title={user}/></p>
     </div>
   )
 }
