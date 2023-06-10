@@ -5,7 +5,7 @@ import Tab from "./Tab";
 const App = () => {
   const [activeTab, setActiveTab] = useState("");
 
-  const handleTabClick = (title) => {
+  const handleTabClick=(title) => {
     setActiveTab(title);
   };
 
