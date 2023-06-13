@@ -1,24 +1,30 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-function Tabs(props) {
-  const [activeTabIndex, setActiveTabIndex] = useState(0);
+const Tabs = ({tabs}) => {
+   const [tabClicked, setTabClicked] = useState("Tab 1");
+    
 
-  const handleTabClick = (index) => {
-    setActiveTabIndex(index);
-  };
+     function tabClickHandler(content){
+        setTabClicked(content);
+     }
+   
+    return(
+        <div>
+            <ul>
+             {
+                tabs.map((tab)=>(
+                    <li
+                     onClick={()=>tabClickHandler(tab.contents)}
+                    >{tab.titles}</li>
+                ))
+             }
+             </ul>
+             {
+                <p>This is the content for {tabClicked}.</p>
+             }
+        </div>
+    )
 
-  return (
-    <div>
-      <ul>
-        {props.tabs.map((tab, index) => (
-          <li key={index} onClick={() => handleTabClick(index)}>
-            {tab.title}
-          </li>
-        ))}
-      </ul>
-      <div>{props.tabs[activeTabIndex].content}</div>
-    </div>
-  );
 }
 
 export default Tabs;
